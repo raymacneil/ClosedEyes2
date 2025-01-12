@@ -1,0 +1,24 @@
+PyShell in PsychoPy - type some commands!
+
+
+Python 3.6.6 (v3.6.6:4cf1f54eb7, Jun 27 2018, 03:37:03) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+from psychopy import visual, monitors
+monName = "Samsung UN55KU6290"
+mon = monitors.Monitor(monName)            
+mon()
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+TypeError: 'Monitor' object is not callable
+mon
+<psychopy.monitors.calibTools.Monitor object at 0x00000273703824A8>
+mon.getDistance
+<bound method Monitor.getDistance of <psychopy.monitors.calibTools.Monitor object at 0x00000273703824A8>>
+mon.getDistance()
+53.5
+from psychopy import tools
+mt = tools.monitorunittools
+mt.pix2deg(300, mon) 
+20.187089900063448
+mt.pix2cm(300, mon)
+18.8515625
