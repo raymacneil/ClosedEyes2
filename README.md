@@ -4,7 +4,7 @@ This is the repository for the code and configuration files of the Closed Eyes 2
 
 The experiment code is written in Python and depends critically on the [PscyhoPy framework](https://github.com/psychopy/psychopy) and [Lab Streaming Layer](https://github.com/labstreaminglayer/pylsl). 
 
-Significant adaptations were made to the ogiginal code (from Closed Eyes 1.0) to allow a more streamlined and flexible means of running the different task conditions and controlling task paramaters. The inclusion of 'configuration files' are the engine of this improved flexibility. 
+Significant adaptations were made to the ogiginal code (from Closed Eyes 1.0) to allow a more streamlined and flexible means of running the different task conditions and controlling experiment paramaters. The inclusion of 'configuration files' are the engine of this improved flexibility. 
 
 ## Related Publications & Academic Work 
 

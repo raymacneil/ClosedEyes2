@@ -194,17 +194,6 @@ if cond == 1 :
     trialBlockNumber = split_on_changes(trialBlockNumber, trialTargDir)
     trialTargDir = split_on_changes(trialTargDir, trialTargDir)
 
-    # IdxBlockDirStart = np.nonzero(np.append(False, np.diff(trialTargDir) != 0))
-    # BlockDirStarts = trialBlockNumber[IdxBlockDirStart[0]]
-    # dir1_blocks = blockNumbers[0:(int(BlockDirStarts[0])-1)]
-    # dir2_blocks = blockNumbers[(int(BlockDirStarts[0])-1):(int(BlockDirStarts[1])-1)]
-    # dir3_blocks = blockNumbers[(int(BlockDirStarts[1])-1):]
-    # blockNumbers = np.array([dir1_blocks, dir2_blocks, dir3_blocks])
-    # blockMarkersOn = np.array([blockMarkersOn[0:(int(BlockDirStarts[0])-1)], blockMarkersOn[(int(BlockDirStarts[0])-1):(int(BlockDirStarts[1])-1)], blockMarkersOn[(int(BlockDirStarts[1])-1):]])
-    # blockTargDir = np.array([blockTargDir[0:(int(BlockDirStarts[0])-1)], blockTargDir[(int(BlockDirStarts[0])-1):(int(BlockDirStarts[1])-1)], blockTargDir[(int(BlockDirStarts[1])-1):]])
-    # trialBlockNumber = trialBlockNumber.reshape(3,block_length*(BlockDirStarts[0]-1))
-    # trialTargDir = trialTargDir.reshape(3,block_length*(BlockDirStarts[0]-1))
-    # trialTargetOrder = trialTargetOrder.reshape(3,block_length*(BlockDirStarts[0]-1))
  
 
     # Setup calibration order
@@ -407,85 +396,11 @@ if cond == 4 :
 w = visual.Window(monitor="Samsung UN55KU6290", screen=2, size=SCREEN_RES, fullscr=True, color=BG_COLOUR, units="cm")
 w.mouseVisible = False
 
-### Create text messages
-
-### Set calibration event messages   
-# if calOrderID[0] == 'H':
-#     EV_MSG_CAL1 = "horz"
-#     STR_CAL1 = "horizontal"
-#     if calOrderID[1] == 'V':
-#         EV_MSG_CAL2 = "vert"
-#         STR_CAL2 = "vertical"
-#         EV_MSG_CAL3 = "obli"
-#         STR_CAL3 = "oblique"
-#     if calOrderID[1] == 'O':
-#         EV_MSG_CAL2 = "obli"
-#         STR_CAL2 = "oblique"
-#         EV_MSG_CAL3 = "vert"
-#         STR_CAL3 = "vertical"     
-# if calOrderID[0] == 'V':
-#     EV_MSG_CAL1 = "vert"
-#     STR_CAL1 = "vertical"
-#     if calOrderID[1] == 'H':
-#         EV_MSG_CAL2 = "horz"
-#         STR_CAL2 = "horizontal"
-#         EV_MSG_CAL3 = "obli"
-#         STR_CAL3 = "oblique"
-#     if calOrderID[1] == 'O':
-#         EV_MSG_CAL2 = "obli"
-#         STR_CAL2 = "oblique"
-#         EV_MSG_CAL3 = "horz"
-#         STR_CAL3 = "horizontal"
-# if calOrderID[0] == 'O':
-#     EV_MSG_CAL1 = "obli"
-#     STR_CAL1 = "oblique"
-#     if calOrderID[1] == 'H':
-#         EV_MSG_CAL2 = "horz"
-#         STR_CAL2 = "horizontal"
-#         EV_MSG_CAL3 = "vert"
-#         STR_CAL3 = "vertical"
-#     if calOrderID[1] == 'V':
-#         EV_MSG_CAL2 = "vert"
-#         STR_CAL2 = "vertical"
-#         EV_MSG_CAL3 = "horz"
-#         STR_CAL3 = "horizontal"
 
 ## Create text messages
 st_exp_msg = createMessage(w, FG_COLOUR, 'Please wait for experimenter instructions.\nPress any key to continue.')
 end_exp_msg = createMessage(w, FG_COLOUR, 'End of Experiment. \nPress any key to exit.')
 exit_msg = createMessage(w, FG_COLOUR, 'Exiting...')
-
-
-# st_cal_msg1 = createMessage(w, FG_COLOUR, 'Press any key to begin ' + STR_CAL1 + ' EOG calibration.')
-# end_cal_msg1 = createMessage(w, FG_COLOUR, 'End of ' + STR_CAL1 + ' EOG calibration. \nPress any key to continue.')
-
-# st_cal_msg2 = createMessage(w, FG_COLOUR, 'Press any key to begin ' + STR_CAL2 + ' EOG calibration.')
-# end_cal_msg2 = createMessage(w, FG_COLOUR, 'End of ' + STR_CAL2 + ' EOG calibration. \nPress any key to continue.')
-
-# st_cal_msg3 = createMessage(w, FG_COLOUR, 'Press any key to begin ' + STR_CAL3 + ' EOG calibration.')
-# end_cal_msg3 = createMessage(w, FG_COLOUR, 'End of ' + STR_CAL3 + ' EOG calibration. \nPress any key to continue.')
-
-
-
-# end_cond_msg1 = createMessage(w, FG_COLOUR, 'End of ' + STR_CAL1 + ' eye-movement condition.\nPress any key to continue.')
-# end_cond_msg2 = createMessage(w, FG_COLOUR, 'End of ' + STR_CAL2 + ' eye-movement condition.\nPress any key to continue.')
-# end_cond_msg3 = createMessage(w, FG_COLOUR, 'End of ' + STR_CAL3 + ' eye-movement condition.\nPress any key to continue.')
-
-
-# EV_CAL1_MSG_ST = ["cal_" + EV_MSG_CAL1 + "_start"]
-# EV_CAL1_MSG_EN = ["cal_" + EV_MSG_CAL1 + "_end"]
-# EV_EXP1_MSG_ST = ["exp_" + EV_MSG_CAL1 + "_start"]
-# EV_EXP1_MSG_EN = ["exp_" + EV_MSG_CAL1 + "_end"]
-# EV_CAL2_MSG_ST = ["cal_" + EV_MSG_CAL2 + "_start"]
-# EV_CAL2_MSG_EN = ["cal_" + EV_MSG_CAL2 + "_end"]
-# EV_EXP2_MSG_ST = ["exp_" + EV_MSG_CAL2 + "_start"]
-# EV_EXP2_MSG_EN = ["exp_" + EV_MSG_CAL2 + "_end"]
-# EV_CAL3_MSG_ST = ["cal_" + EV_MSG_CAL3 + "_start"]
-# EV_CAL3_MSG_EN = ["cal_" + EV_MSG_CAL3 + "_end"]
-# EV_EXP3_MSG_ST = ["exp_" + EV_MSG_CAL3 + "_start"]
-# EV_EXP3_MSG_EN = ["exp_" + EV_MSG_CAL3 + "_end"]
-
-
 
 # set up a custom graphics envrionment (EyeLinkCoreGraphicsPsychopy) for calibration
 genv = EyeLinkCoreGraphicsPsychoPy(elTk, w)
@@ -562,73 +477,6 @@ if not exp_abort :
             if cond != 4 :
                 elTk.sendMessage(["cond" + str(cond) + "_end"])
                 elTk.sendMessage(EV_EXP_MSG_EN)
-
-
-        # if not exp_abort and run_calib_trials:
-        
-        #     is_calib = True
-        #     ## Run calibration procedure for Eyelink & EOG linearization
-        #     ev_outlet.push_sample(EV_CAL2_MSG_ST)
-        #     if cond != 4 :
-        #         elTk.sendMessage(EV_CAL2_MSG_ST)
-        #     exp_abort = ss_runcalibs(w, calOrderID[1], FG_COLOUR, BG_COLOUR, RED, GRN, PPCM, st_cal_msg2, end_cal_msg2, caliOrderHorz, numCalibTargets, numTrialsPerTarget_HorzCalib, isi, angles_horz, angles_vert, fix_shift, ev_outlet, eog_conn, el_outlet, elTk, EYE_TO_SCREEN_CM)
-        #     ev_outlet.push_sample(EV_CAL2_MSG_EN)
-        #     if cond != 4 :
-        #         elTk.sendMessage(EV_CAL2_MSG_EN)
-        
-        # if not exp_abort:
-        #     ev_outlet.push_sample(EV_EXP2_MSG_ST) # XDF/LSL event message
-        #     if cond != 4 :
-        #         elTk.sendMessage(EV_EXP2_MSG_ST) # EDF event message
-
-        #     ev_outlet.push_sample(["cond" + str(cond) + "_start"])
-        #     if cond != 4 :
-                
-        #         elTk.sendMessage(["cond" + str(cond) + "_start"])
-
-        #         if cond == 1:
-        #             exp_abort = ss_runtrials(w, FG_COLOUR, BG_COLOUR, RED, GRN, PPCM, st_exp_msg, end_cond_msg2, trialTargetOrder[1][0:], trialBlockNumber[1][0:], blockNumbers[1][0:], blockMarkersOn[1][0:], blockTargDir[1][0:], isi, angles_horz, angles_vert, fix_shift, ev_outlet, eog_conn, el_outlet, elTk, EYE_TO_SCREEN_CM)           
-        #         elif cond == 2:
-        #             ss_runtrials_cond2(w, FG_COLOUR, BG_COLOUR, RED, GRN, PPCM, st_exp_msg, end_cond_msg2, trialTargetOrder[1][0:], trialBlockNumber[1][0:], blockNumbers[1][0:], blockEyesOpen[1][0:], isi, angles_horz, angles_vert, fix_shift, ev_outlet, eog_conn, el_outlet, elTk)
-
-        #     ev_outlet.push_sample(["cond" + str(cond) + "_end"])
-        #     ev_outlet.push_sample(EV_EXP2_MSG_EN)      
-        #     if cond != 4 :
-        #         elTk.sendMessage(["cond" + str(cond) + "_end"])
-        #         elTk.sendMessage(EV_EXP2_MSG_EN)    
-
-        # if not exp_abort and run_calib_trials:
-        
-        #     is_calib = True
-        #     ## Run calibration procedure for Eyelink & EOG linearization
-        #     ev_outlet.push_sample(EV_CAL3_MSG_ST)
-        #     if cond != 4 :
-        #         elTk.sendMessage(EV_CAL3_MSG_ST)
-        #     exp_abort = ss_runcalibs(w, calOrderID[2], FG_COLOUR, BG_COLOUR, RED, GRN, PPCM, st_cal_msg3, end_cal_msg3, caliOrderHorz, numCalibTargets, numTrialsPerTarget_HorzCalib, isi, angles_horz, angles_vert, fix_shift, ev_outlet, eog_conn, el_outlet, elTk, EYE_TO_SCREEN_CM)
-        #     ev_outlet.push_sample(EV_CAL3_MSG_EN)
-        #     if cond != 4 :
-        #         elTk.sendMessage(EV_CAL3_MSG_EN)
-        
-        # if not exp_abort:
-        #     ev_outlet.push_sample(EV_EXP3_MSG_ST) # XDF/LSL event message
-        #     if cond != 4 :
-        #         elTk.sendMessage(EV_EXP3_MSG_ST) # EDF event message
-
-        #     ev_outlet.push_sample(["cond" + str(cond) + "_start"])
-        #     if cond != 4 :
-                
-        #         elTk.sendMessage(["cond" + str(cond) + "_start"])
-
-        #         if cond == 1:
-        #             exp_abort = ss_runtrials(w, FG_COLOUR, BG_COLOUR, RED, GRN, PPCM, st_exp_msg, end_cond_msg3, trialTargetOrder[2][0:], trialBlockNumber[2][0:], blockNumbers[2][0:], blockMarkersOn[2][0:], blockTargDir[2][0:], isi, angles_horz, angles_vert, fix_shift, ev_outlet, eog_conn, el_outlet, elTk, EYE_TO_SCREEN_CM)           
-        #         elif cond == 2:
-        #             ss_runtrials_cond2(w, FG_COLOUR, BG_COLOUR, RED, GRN, PPCM, st_exp_msg, end_cond_msg3, trialTargetOrder[2][0:], trialBlockNumber[2][0:], blockNumbers[2][0:], blockEyesOpen[2][0:], isi, angles_horz, angles_vert, fix_shift, ev_outlet, eog_conn, el_outlet, elTk)
-
-        #     ev_outlet.push_sample(["cond" + str(cond) + "_end"])
-        #     ev_outlet.push_sample(EV_EXP3_MSG_EN)      
-        #     if cond != 4 :
-        #         elTk.sendMessage(["cond" + str(cond) + "_end"])
-        #         elTk.sendMessage(EV_EXP3_MSG_EN)
 
 # Ask if we would like to run Cond 2 (Non-Illuminated)
 run_cond2 = False
